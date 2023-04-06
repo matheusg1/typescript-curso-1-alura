@@ -1,7 +1,5 @@
-export class NegociacoesView {
-    constructor(seletor) {
-        this.elemento = document.querySelector(seletor); //div com id="negociacoesView"
-    }
+import { View } from "./view.js";
+export class NegociacoesView extends View {
     template(model) {
         return `
         <table class="table table-hover table-bordered">
@@ -26,8 +24,4 @@ export class NegociacoesView {
         </table>
         `;
     } //join coloca todos <tr> mapeados numa sequência, um array de string
-    update(model) {
-        const template = this.template(model);
-        this.elemento.innerHTML = template; //adiciona a tabela dentro da div
-    }
 }

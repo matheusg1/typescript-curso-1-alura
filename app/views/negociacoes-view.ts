@@ -1,12 +1,7 @@
-import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { View } from "./view.js";
 
-export class NegociacoesView {
-    private elemento : HTMLElement;
-
-    constructor(seletor: string){
-        this.elemento = document.querySelector(seletor) //div com id="negociacoesView"
-    }
+export class NegociacoesView extends View<Negociacoes>{
 
     template(model: Negociacoes): string {
         return `
@@ -32,9 +27,4 @@ export class NegociacoesView {
         </table>
         `
     }//join coloca todos <tr> mapeados numa sequência, um array de string
-
-    update(model: Negociacoes): void{
-        const template = this.template(model);        
-        this.elemento.innerHTML = template; //adiciona a tabela dentro da div
-    }
 }
